@@ -32,12 +32,8 @@ public class EmployeeWageComputation {
 			System.out.println("Day#: " + totalWorkingDays + "Emp Hr:" +empHrs);
 		}
 		int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
-		System.out.println("Total Emp Wage : " + totalEmpWage);
-		
-		
-		
-		
-		   //UC5
+		System.out.println("Total Emp Wage : " + totalEmpWage);  //UC6
+	
 
 	}
 
