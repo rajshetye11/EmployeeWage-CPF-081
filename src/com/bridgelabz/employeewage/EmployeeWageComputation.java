@@ -4,8 +4,23 @@ public class EmployeeWageComputation {
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
 	
-	public static void calculateWage(String company, int empRatePerHour, 
-										int numOfWorkingDays, int maxHoursInMonth) {
+	private final String company;
+	private final int empRatePerHour;
+	private final int numOfWorkingDays;
+	private final int maxHoursInMonth;
+	private int totalEmpWage;
+	
+	public EmployeeWageComputation(String company, int empRatePerHour, 
+			int numOfWorkingDays, int maxHoursInMonth)
+	{
+		this.company = company;
+		this.empRatePerHour = empRatePerHour;
+		this.numOfWorkingDays = numOfWorkingDays;
+		this.maxHoursInMonth = maxHoursInMonth;
+	}
+	
+	
+	public void calculateWage() {
 		
 		int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
 		
@@ -28,15 +43,19 @@ public class EmployeeWageComputation {
 			totalEmpHrs += empHrs;
 			System.out.println("Day: " + totalWorkingDays + "Emp Hr:" +empHrs);
 		}
-		int totalEmpWage = totalEmpHrs * empRatePerHour;
-		System.out.println("Total Emp Wage for Company "+company+" is : " + totalEmpWage);  
-//		return totalEmpWage; instead of void use int to return int value
+		totalEmpWage = totalEmpHrs * empRatePerHour;
+		System.out.println("Total Emp Wage for Company "+company+" is : " +totalEmpWage);  
 	}
-	
+
 	public static void main(String[] args) 
 	{
-		calculateWage("Apple",40,20,10); //UC8
-		calculateWage("Jio",20,20,10); //UC8
+		EmployeeWageComputation apple = new EmployeeWageComputation("Apple",40,20,10);
+		EmployeeWageComputation jio = new EmployeeWageComputation("Jio",20,20,10);
+		System.out.println("Apple");
+		apple.calculateWage();
+		System.out.println("Jio");
+		jio.calculateWage();
+				
 	}
 
 }
